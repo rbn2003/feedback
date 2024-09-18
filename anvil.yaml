@@ -1,12 +1,37 @@
 allow_embedding: false
+db_schema:
+  feedback:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: Name
+      type: string
+    - admin_ui: {order: 1, width: 200}
+      name: Email
+      type: string
+    - admin_ui: {order: 2, width: 200}
+      name: Feedback
+      type: string
+    - admin_ui: {order: 3, width: 200}
+      name: Created
+      type: datetime
+    server: full
+    title: Feedback
 dependencies: []
-name: M3 App 1
-package_name: M3_App_1
+metadata: {description: 'This app allows the user to drop his/her own feedback on any specific topic/matter. ', title: My First Feedback Form}
+name: Feedback
+package_name: Feedback
 renamed: true
 runtime_options:
   client_version: '3'
   server_spec: {base: python310-standard}
   server_version: python3-sandbox
   version: 2
-services: []
+services:
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/tables.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/anvil/email.yml
 startup_form: Form1
